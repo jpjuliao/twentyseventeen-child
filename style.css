@@ -1,0 +1,425 @@
+/*
+Theme Name: Twentyseventeen Child
+Author: Juan Pablo Juliao
+Author URI: http://jpjuliao.com
+Template: twentyseventeen
+
+=============================================
+
+1. Variables
+2. Global
+3. Header
+4. Footer
+5. Content
+6. Title
+7. Post type
+8. Page type
+9. Home page
+10. Specific pages
+
+============================================= 
+
+*/
+/**
+ * Variables
+ */
+:root {
+    --body-font-family: 'Poppins', sans-serif; 
+    --body-color: #3e3e3e; 
+    --body-background: #fff; 
+    --header-background: #ffffff; 
+    --header-nav-link-color: #000; 
+    --header-nav-link-color-hover: #0669ae; 
+    --header-mobile-nav-link-color: #3e3e3e; 
+    --footer-color: #8a8a8a;
+    --footer-background: #000;
+    --footer-title-color: #fff;
+    --footer-link-color: #fff;
+    --footer-link-color-hover: #8a8a8a;
+    --content-title-background: #efefef; 
+    --content-button-color: #fff; 
+    --content-button-color-hover: #fff; 
+    --content-button-background: #0669ae; 
+    --content-button-background-hover: #04548c; 
+}
+
+/**
+ * Global 
+ */
+body {
+    font-family: var(--body-font-family);
+    color: var(--body-color);
+    background: var(--body-background);
+    font-size: 14px;
+    font-weight: 300;
+}
+
+body:not(.single-post) ul, 
+body:not(.single-post) ol {
+    padding-left: 20px;
+}
+
+.entry-content a, .entry-summary a, .widget a, .site-footer .widget-area a, .posts-navigation a, .widget_authors a strong {
+    -webkit-box-shadow: inset 0 0 0 rgba(15, 15, 15, 1);
+    box-shadow: inset 0 0 0 rgba(15, 15, 15, 1);
+    -webkit-transition: color 80ms ease-in, -webkit-box-shadow 130ms ease-in-out;
+    transition: color 80ms ease-in, -webkit-box-shadow 130ms ease-in-out;
+    transition: color 80ms ease-in, box-shadow 130ms ease-in-out;
+    transition: color 80ms ease-in, box-shadow 130ms ease-in-out, -webkit-box-shadow 130ms ease-in-out;
+}
+
+.entry-title a, .entry-meta a, .page-links a, .page-links a .page-number, .entry-footer a, .entry-footer .cat-links a, .entry-footer .tags-links a, .edit-link a, .post-navigation a, .logged-in-as a, .comment-navigation a, .comment-metadata a, .comment-metadata a.comment-edit-link, .comment-reply-link, a .nav-title, .pagination a, .comments-pagination a, .site-info a, .widget .widget-title a, .widget ul li a, .site-footer .widget-area ul li a, .site-footer .widget-area ul li a {
+    -webkit-box-shadow: inset 0 0 0 rgba(255, 255, 255, 1);
+    box-shadow: inset 0 0 0 rgba(255, 255, 255, 1);
+    text-decoration: none;
+    -webkit-transition: color 80ms ease-in, -webkit-box-shadow 130ms ease-in-out;
+    transition: color 80ms ease-in, -webkit-box-shadow 130ms ease-in-out;
+    transition: color 80ms ease-in, box-shadow 130ms ease-in-out;
+    transition: color 80ms ease-in, box-shadow 130ms ease-in-out, -webkit-box-shadow 130ms ease-in-out;
+}
+
+.entry-content a:focus, .entry-content a:hover, .entry-summary a:focus, .entry-summary a:hover, .widget a:focus, .widget a:hover, .site-footer .widget-area a:focus, .site-footer .widget-area a:hover, .posts-navigation a:focus, .posts-navigation a:hover, .comment-metadata a:focus, .comment-metadata a:hover, .comment-metadata a.comment-edit-link:focus, .comment-metadata a.comment-edit-link:hover, .comment-reply-link:focus, .comment-reply-link:hover, .widget_authors a:focus strong, .widget_authors a:hover strong, .entry-title a:focus, .entry-title a:hover, .entry-meta a:focus, .entry-meta a:hover, .page-links a:focus .page-number, .page-links a:hover .page-number, .entry-footer a:focus, .entry-footer a:hover, .entry-footer .cat-links a:focus, .entry-footer .cat-links a:hover, .entry-footer .tags-links a:focus, .entry-footer .tags-links a:hover, .post-navigation a:focus, .post-navigation a:hover, .pagination a:not(.prev):not(.next):focus, .pagination a:not(.prev):not(.next):hover, .comments-pagination a:not(.prev):not(.next):focus, .comments-pagination a:not(.prev):not(.next):hover, .logged-in-as a:focus, .logged-in-as a:hover, a:focus .nav-title, a:hover .nav-title, .edit-link a:focus, .edit-link a:hover, .site-info a:focus, .site-info a:hover, .widget .widget-title a:focus, .widget .widget-title a:hover, .widget ul li a:focus, .widget ul li a:hover {
+    color: #000;
+    -webkit-box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(0, 0, 0, 1);
+    box-shadow: inset 0 0 0 rgba(0, 0, 0, 0), 0 0 0 rgba(0, 0, 0, 1);
+}
+
+body .vc_btn3.vc_btn3-color-grey.vc_btn3-style-modern {
+    color: var(--content-button-color);
+    background-color: var(--content-button-background);
+}
+
+body .vc_btn3.vc_btn3-color-grey.vc_btn3-style-modern:hover,
+body .vc_btn3.vc_btn3-color-grey.vc_btn3-style-modern:focus {
+    color: var(--content-button-color-hover);
+    background-color: var(--content-button-background-hover);
+}
+
+/**
+ * Header
+ */
+header#masthead {
+    background: var(--header-background);
+}
+
+#masthead > .wrap {
+	max-width: 100%;
+	display: -webkit-box;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-pack: center;
+	-ms-flex-pack: center;
+	justify-content: center;
+	-webkit-box-align: center;
+	-ms-flex-align: center;
+	align-items: center;
+	padding: 0 5%;
+}
+
+.has-header-image header#masthead:before {
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.3+75 */ /* FF3.6-15 */ /* Chrome10-25,Safari5.1-6 */
+	background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), color-stop(75%, rgba(0, 0, 0, 0.3)), to(rgba(0, 0, 0, 0.3)));
+	background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 75%, rgba(0, 0, 0, 0.3) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#00000000", endColorstr="#4d000000", GradientType=0); /* IE6-9 */
+	bottom: 0;
+	content: "";
+	display: block;
+	height: 100%;
+	left: 0;
+	position: absolute;
+	right: 0;
+	z-index: 2;
+}
+
+.has-header-image:not(.twentyseventeen-front-page):not(.home) header#masthead:before {
+	display: none;
+}
+
+.has-header-image .custom-header-media:before {
+    background: none;
+}
+
+.has-header-image header#masthead {
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+}
+
+.has-header-image:not(.twentyseventeen-front-page):not(.home) .custom-header-media {
+	display:none;
+}
+
+.custom-header {
+    text-align: center;
+    margin: 0 !important;
+    width: 15%;
+}
+
+.navigation-top {
+    position: relative;
+    background: transparent;
+    border: none;
+    width: 85%;
+}
+
+.navigation-top .wrap {
+	min-width: 100%;
+	padding-left: 0;
+	padding-right: 0;
+}
+
+.site-branding {
+    margin: 0 !important;
+    padding: 1.5em 0;
+}
+
+.site-branding .wrap {
+	padding: 0;
+}
+
+.site-branding a {
+    padding: 0 20px;
+    display: block;
+}
+
+.site-branding img {
+    max-height: 65px;
+    display: block;
+}
+
+.navigation-top a {
+    color: var(--header-nav-link-color);
+    text-transform: uppercase;
+}
+
+.navigation-top .current-menu-item > a, .navigation-top .current_page_item > a, .main-navigation a:hover {
+    color: var(--header-nav-link-color-hover);
+}
+
+#top-menu {
+    text-align: right;
+}
+
+.site-navigation-fixed #top-menu {
+    text-align: center;
+}
+
+.navigation-top.site-navigation-fixed {
+    background: var(--header-background);
+    border-bottom: 1px solid #ececec;
+    z-index: 100;
+}
+
+button.menu-toggle {
+    color: var(--header-nav-link-color);
+}
+
+@media (max-width: 920px) {
+    #top-menu {
+        text-align: center;
+    }
+
+    .custom-header {
+        max-width: 100%;
+    }
+
+    header#masthead > .wrap {
+        display: block;
+    }
+
+	.custom-header,
+	.navigation-top {
+		width: 100%;
+	}
+
+	.site-branding img {
+		margin: auto;
+	}
+
+}
+
+@media (max-width: 767px) {
+    .custom-header {
+        max-width: 100%;
+    }
+
+	.site-branding .wrap {
+		padding: 0 0 0 0em;
+	}
+
+    .navigation-top a {
+        color: var(--header-mobile-nav-link-color);
+    }
+}
+
+/**
+ * Footer
+ */
+.site-footer {
+    background: var(--footer-background);
+    color: var(--footer-color);
+}
+
+.site-footer .widget-title {
+    font-size: 16px;
+    color: var(--footer-title-color);
+}
+
+.site-footer .widget-area a {
+    color: var(--footer-link-color);
+}
+
+.site-footer .widget-area a:hover,
+.site-footer .widget-area a:focus {
+    color: var(--footer-link-color-hover);
+}
+
+.site-footer .wrap {
+    max-width: 100%;
+}
+
+.site-footer .widget-area {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    max-width: 900px;
+    margin: auto;
+
+}
+
+.site-footer .widget-column.footer-widget-1,
+.site-footer .widget-column.footer-widget-2 {
+    width:50%;
+    padding: 0 10px;
+    -webkit-box-sizing:border-box;
+    box-sizing:border-box;
+}
+
+.site-info {
+    width: 100%;
+    text-align:center;
+}
+
+@media (max-width:767px) {
+
+    .site-footer .widget-column.footer-widget-1,
+    .site-footer .widget-column.footer-widget-2 {
+        width:100%;
+    }
+
+}
+
+/**
+ * Content
+ */
+body:not(.single-post) .site-content, 
+body:not(.single-post) .panel-content > .wrap {
+    padding-top: 0;
+}
+
+.entry-content {
+    margin-top: 30px;
+    padding: 0 20px;
+}
+
+body.page-one-column:not(.archive) #primary .entry-content,
+body.page-two-column:not(.archive) #primary .entry-content {
+    width: 100%;
+    float: none;
+}
+
+/**
+ * Title
+ */
+body.blog .page-header,
+body:not(.single-post):not(.blog) header.entry-header, 
+body:not(.twentyseventeen-front-page):not(.single-post):not(.blog) .entry-header {
+    padding: 1.5em 3em;
+    background: var(--content-title-background);
+    text-align: center;
+}
+
+body.blog .page-header {
+	margin-bottom: 60px;
+}
+
+body.page-two-column:not(.archive) #primary .entry-header {
+    float: none;
+    display: block;
+    width: auto;
+}
+
+body.blog .page-title,
+header.entry-header .entry-title {
+    font-size: 18px;
+    margin: 0;
+}
+
+header.entry-header .edit-link {
+    display: none;
+}
+
+@media (max-width: 767px) {
+    header.entry-header, body:not(.twentyseventeen-front-page) .entry-header {
+        padding: 1.5em 2em;
+    }
+}
+
+/**
+ * Post type
+ */
+.panel-content .wrap, 
+.site-content .wrap {
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	max-width: 100%;
+	padding: 0;
+}
+
+@media (max-width: 767px) {
+	.panel-content .wrap, 
+	.site-content .wrap {
+	}
+}
+
+/**
+ * Page type 
+ */
+.page .entry-header {
+    margin-bottom: 0;
+}
+
+.page header.entry-header .entry-title {
+    font-size: 18px;
+    color: #a5a5a5;
+    letter-spacing: 1px;
+}
+.page .site-footer {
+    margin: 0;
+}
+
+.page:not(.home) #content {
+	padding-top: 0;
+    padding-bottom: 0
+}
+
+/**
+ * Home page
+ */
+.home .entry-content {
+    margin-top: 0px;
+}
+
+.home header.entry-header {
+    display: none !important;
+}
+
+/**
+ * Specific pages
+ */
+
+/*  .page-id-XX = Page name */
+
+
