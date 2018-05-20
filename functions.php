@@ -3,6 +3,13 @@
 if ( !defined( 'ABSPATH' ) ) exit;
 
 
+/**
+ * Copyright
+ */
+function custom_get_copyright() {
+	echo '© ' .  date('Y') . ' ' . get_bloginfo('name') . '. Todos los derechos reservados.';
+}
+
 
 /**
  * Styles and scripts
@@ -15,8 +22,6 @@ function custom_styles_scripts() {
 add_action( 'wp_enqueue_scripts', 'custom_styles_scripts', 10 );
 
 
-
-
 /**
  * Remove WordPress Logo From Admin Bar
  */
@@ -26,7 +31,6 @@ function annointed_admin_bar_remove() {
         $wp_admin_bar->remove_menu('wp-logo');
 }
 add_action('wp_before_admin_bar_render', 'annointed_admin_bar_remove', 0);
-
 
 
 /**
@@ -44,5 +48,15 @@ function jpjuliao_customize_register( $wp_customize ){
 add_action( 'customize_register', 'jpjuliao_customize_register', 11 );
 
 
-
-
+/**
+ * Search only post type
+ */
+if (!is_admin()) {
+	function custom_search_filter($query) {
+		if ($query->is_search) {
+			$query->set('post_type', array('post'));
+		}
+		return $query;
+	}
+	add_filter('pre_get_posts','custom_search_filter');
+}

@@ -10,5 +10,5 @@
 
 ?>
 <div class="site-info">
-	© <?php echo date('Y') ?> Metrocaribe SA. Todos los derechos reservados.
+    <?php echo custom_get_copyright(); ?>
 </div><!-- .site-info -->
